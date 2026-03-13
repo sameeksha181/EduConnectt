@@ -1,0 +1,13 @@
+
+.student-create {
+  max-width: 640px;
+  margin: 16px auto;
+
+  .form-group {
+    margin-bottom: 12px;
+  }
+  .btn-row {
+    display: flex;
+    gap: 8px;
+  }
+}

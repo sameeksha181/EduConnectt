@@ -1,20 +1,28 @@
-<<<<<<< HEAD
+
+// src/app/educonnect/components/teachersample/teachersample.component.ts
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Teacher } from '../../models/Teacher';
 
 @Component({
   selector: 'app-teachersample',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './teachersample.component.html',
   styleUrls: ['./teachersample.component.scss']
 })
 export class TeacherSampleComponent {
   teacher: Teacher;
+
   constructor() {
-    this.teacher = new Teacher(501, 'Dr. Robert Smith', '9123456789', 'robert.smith@example.com', 'Physics', 12);
+    // Sample data as per Day 17 requirement (used by Day 18 tests too)
+    this.teacher = new Teacher(
+      501,
+      'Dr. Robert Smith',
+      '9123456789',
+      'robert.smith@example.com',
+      'Physics',
+      12
+    );
   }
+
   logTeacherAttributes(): void {
     console.log('teacherId:', this.teacher.teacherId);
     console.log('fullName:', this.teacher.fullName);
@@ -24,10 +32,4 @@ export class TeacherSampleComponent {
     console.log('yearsOfExperience:', this.teacher.yearsOfExperience);
   }
 }
-=======
 
-export class TeacherSampleComponent  {
-
-  
-}
->>>>>>> d76e0db293a8626f50b912ae8482fe15a23e1abc

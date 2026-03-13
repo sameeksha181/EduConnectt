@@ -1,20 +1,28 @@
-<<<<<<< HEAD
+
+// src/app/educonnect/components/studentsample/studentsample.component.ts
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Student } from '../../models/Student';
 
 @Component({
   selector: 'app-studentsample',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './studentsample.component.html',
   styleUrls: ['./studentsample.component.scss']
 })
 export class StudentSampleComponent {
   student: Student;
+
   constructor() {
-    this.student = new Student(101, 'Alice Johnson', new Date(2002, 4, 12), '9876543210', 'alice@example.com', '221B Baker Street');
+    // Sample data as per Day 17 requirement (used by Day 18 tests too)
+    this.student = new Student(
+      101,
+      'Alice Johnson',
+      new Date(2002, 4, 12),
+      '9876543210',
+      'alice@example.com',
+      '221B Baker Street'
+    );
   }
+
   logStudentAttributes(): void {
     console.log('studentId:', this.student.studentId);
     console.log('fullName:', this.student.fullName);
@@ -24,9 +32,3 @@ export class StudentSampleComponent {
     console.log('address:', this.student.address);
   }
 }
-=======
-
-export class StudentSampleComponent {
-  
-}
->>>>>>> d76e0db293a8626f50b912ae8482fe15a23e1abc

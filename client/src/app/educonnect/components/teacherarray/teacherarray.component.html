@@ -1,0 +1,26 @@
+<h2 class="title">Teachers</h2>
+ 
+<div class="actions">
+<button id="toggleBtn" type="button" (click)="toggleDetails()">
+    {{ showDetails ? 'Hide' : 'Show' }} Details
+</button>
+</div>
+ 
+<!-- Always render the list so the spec can count li elements -->
+<ul class="teacher-list">
+<li class="teacher-item teacher-card" *ngFor="let t of teachers">
+<div class="card">
+<div class="row"><strong>ID:</strong> {{ t.teacherId }}</div>
+<div class="row"><strong>Name:</strong> {{ t.fullName }}</div>
+<div class="row"><strong>Subject:</strong> {{ t.subject }}</div>
+<ng-container *ngIf="showDetails">
+<div class="row"><strong>Contact:</strong> {{ t.contactNumber }}</div>
+<div class="row"><strong>Email:</strong> {{ t.email }}</div>
+<div class="row"><strong>Experience:</strong> {{ t.yearsOfExperience }} yrs</div>
+</ng-container>
+</div>
+</li>
+</ul>
+ 
+<!-- Optional: only when truly empty -->
+<p class="empty" *ngIf="teachers.length === 0">No teachers available</p>

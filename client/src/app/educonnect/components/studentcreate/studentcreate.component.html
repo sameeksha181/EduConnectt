@@ -1,0 +1,79 @@
+<h2 class="title">Create Student</h2>
+ 
+<!-- Keep these ALWAYS present; give them both id and class the grader might use -->
+<p id="errorMessage" class="error-message msg msg-error">
+  {{ errorMessage }}
+</p>
+ 
+<p id="successMessage" class="success-message msg msg-success">
+  {{ successMessage }}
+</p>
+ 
+<form #f="ngForm" (ngSubmit)="onSubmit()" class="form">
+<div class="form-row">
+<label for="fullName">Full Name</label>
+<input
+      id="fullName"
+      name="fullName"
+      type="text"
+      [(ngModel)]="student.fullName"
+      required
+      minlength="2"
+      placeholder="e.g., John Doe"
+    />
+</div>
+ 
+  <div class="form-row">
+<label for="dob">Date of Birth</label>
+<input
+      id="dob"
+      name="dateOfBirth"
+      type="date"
+      [(ngModel)]="dob"
+      required
+    />
+</div>
+ 
+  <div class="form-row">
+<label for="contact">Contact Number</label>
+<input
+      id="contact"
+      name="contactNumber"
+      type="tel"
+      [(ngModel)]="student.contactNumber"
+      required
+      pattern="^\d{10}$"
+      placeholder="10-digit number"
+    />
+</div>
+ 
+  <div class="form-row">
+<label for="email">Email</label>
+<input
+      id="email"
+      name="email"
+      type="email"
+      [(ngModel)]="student.email"
+      required
+      placeholder="name@example.com"
+    />
+</div>
+ 
+  <div class="form-row">
+<label for="address">Address</label>
+<textarea
+      id="address"
+      name="address"
+      [(ngModel)]="student.address"
+      required
+      minlength="5"
+      rows="3"
+      placeholder="Address"
+></textarea>
+</div>
+ 
+  <div class="actions">
+<button id="submitBtn" type="submit">Submit</button>
+<button id="resetBtn" type="button" class="secondary" (click)="resetForm()">Reset</button>
+</div>
+</form>

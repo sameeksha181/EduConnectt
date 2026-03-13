@@ -1,1 +1,9 @@
-.student-card { padding: 12px; border: 1px solid #ddd; border-radius: 8px; }
+
+/* src/app/educonnect/components/studentsample/studentsample.component.scss */
+.student-card {
+  max-width: 560px;
+  margin: 16px auto;
+  padding: 12px;
+  border: 1px dashed #cfd8dc;
+  border-radius: 8px;
+}

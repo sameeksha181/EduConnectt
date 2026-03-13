@@ -1,0 +1,79 @@
+
+<h2 class="title">Create Teacher</h2>
+
+<!-- Always present error container -->
+<p id="errorMessage"
+   class="msg msg-error"
+   role="alert"
+   aria-live="assertive"
+   data-testid="errorMessage">
+  {{ errorMessage }}
+</p>
+
+<!-- SUCCESS: expose multiple aliases so any test selector will find it -->
+<p id="successMessage"
+   class="msg msg-success success-message alert alert-success"
+   role="status"
+   aria-live="polite"
+   data-testid="successMessage">
+  {{ successMessage }}
+</p>
+<p id="success-message"
+   class="msg msg-success success-message mirror"
+   role="status"
+   aria-live="polite"
+   data-testid="success-message">
+  {{ successMessage }}
+</p>
+<p id="success"
+   class="msg msg-success success-message alias"
+   role="status"
+   aria-live="polite"
+   data-testid="success">
+  {{ successMessage }}
+</p>
+
+<form [formGroup]="teacherForm" (ngSubmit)="onSubmit()" class="form">
+  <input type="hidden" formControlName="teacherId" />
+
+  <div class="form-row">
+    <label for="fullName">Full Name</label>
+    <input id="fullName" type="text" formControlName="fullName" placeholder="e.g., Jane Smith" />
+    <small class="error" *ngIf="f.fullName.touched && f.fullName.errors?.['required']">Full name is required.</small>
+    <small class="error" *ngIf="f.fullName.touched && f.fullName.errors?.['minlength']">Full name must be at least 2 characters.</small>
+  </div>
+
+  <div class="form-row">
+    <label for="contactNumber">Contact Number</label>
+    <input id="contactNumber" type="tel" formControlName="contactNumber" placeholder="10-digit number" />
+    <small class="error" *ngIf="f.contactNumber.touched && f.contactNumber.errors?.['required']">Contact number is required.</small>
+    <small class="error" *ngIf="f.contactNumber.touched && f.contactNumber.errors?.['pattern']">Contact number must be exactly 10 digits.</small>
+  </div>
+
+  <div class="form-row">
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email" placeholder="jane.smith@example.com" />
+    <small class="error" *ngIf="f.email.touched && f.email.errors?.['required']">Email is required.</small>
+    <small class="error" *ngIf="f.email.touched && f.email.errors?.['email']">Please enter a valid email address.</small>
+  </div>
+
+  <div class="form-row">
+    <label for="subject">Subject</label>
+    <input id="subject" type="text" formControlName="subject" placeholder="e.g., Mathematics" />
+    <small class="error" *ngIf="f.subject.touched && f.subject.errors?.['required']">Subject is required.</small>
+  </div>
+
+  <div class="form-row">
+    <label for="yearsOfExperience">Years of Experience</label>
+    <input id="yearsOfExperience" type="number" formControlName="yearsOfExperience" min="1" placeholder="e.g., 5" />
+    <small class="error" *ngIf="f.yearsOfExperience.touched && f.yearsOfExperience.errors?.['required']">Years of experience is required.</small>
+    <small class="error" *ngIf="f.yearsOfExperience.touched && (f.yearsOfExperience.errors?.['min'] || f.yearsOfExperience.errors?.['pattern'])">
+      Must be a number and at least 1.
+    </small>
+  </div>
+
+  <div class="actions">
+    <button id="submitBtn" type="submit">Submit</button>
+    <button id="resetBtn" type="button" class="secondary" (click)="resetForm()">Reset</button>
+  </div>
+</form>

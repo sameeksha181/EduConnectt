@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 export class Teacher {
   teacherId: number;
   fullName: string;
@@ -6,7 +6,15 @@ export class Teacher {
   email: string;
   subject: string;
   yearsOfExperience: number;
-  constructor(teacherId: number, fullName: string, contactNumber: string, email: string, subject: string, yearsOfExperience: number) {
+
+  constructor(
+    teacherId: number,
+    fullName: string,
+    contactNumber: string,
+    email: string,
+    subject: string,
+    yearsOfExperience: number
+  ) {
     this.teacherId = teacherId;
     this.fullName = fullName;
     this.contactNumber = contactNumber;
@@ -14,6 +22,7 @@ export class Teacher {
     this.subject = subject;
     this.yearsOfExperience = yearsOfExperience;
   }
+
   logAttributes(): void {
     console.log('teacherId:', this.teacherId);
     console.log('fullName:', this.fullName);
@@ -22,9 +31,4 @@ export class Teacher {
     console.log('subject:', this.subject);
     console.log('yearsOfExperience:', this.yearsOfExperience);
   }
-=======
-
-export class Teacher {
-
->>>>>>> d76e0db293a8626f50b912ae8482fe15a23e1abc
 }
